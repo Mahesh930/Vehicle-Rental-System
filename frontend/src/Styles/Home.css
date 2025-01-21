@@ -1,0 +1,457 @@
+<<<<<<< HEAD
+/* Header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ff6347;
+  /* Tomato red for header background */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  color: white;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  /* Shadow for depth */
+}
+
+.logo {
+  font-size: 1.8em;
+  font-weight: bold;
+  letter-spacing: 2px;
+=======
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Header Styles */
+.header {
+  background-color: #003366; /* Navy Blue */
+  padding: 15px 20px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-left .profile-icon {
+  font-size: 1.8rem;
+  color: white;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+>>>>>>> e275ff9773fbe45ff1fa26c6b3818e0ce430b494
+}
+
+.navbar ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+<<<<<<< HEAD
+=======
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar li {
+  display: inline;
+>>>>>>> e275ff9773fbe45ff1fa26c6b3818e0ce430b494
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+<<<<<<< HEAD
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #ffdf00;
+  /* Gold color for hover */
+}
+
+/* Adjusting the login button and its container */
+.login-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 100px;
+  /* Center the button */
+}
+
+.btn-login {
+  background-color: #4caf50;
+  /* Green background for login button */
+  color: white;
+  padding: 12px 30px;
+  /* Increased padding for better spacing */
+  font-size: 1.2em;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+ 
+}
+
+.btn-login:hover {
+  background-color: #ffdf00;
+  /* Gold on hover */
+=======
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #ffcc00; /* Golden color on hover */
+>>>>>>> e275ff9773fbe45ff1fa26c6b3818e0ce430b494
+}
+
+/* Hero Section */
+.hero {
+  background-image: url('../img/background.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 80px 0;
+  color: white;
+  text-align: center;
+<<<<<<< HEAD
+=======
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 80px; /* Adjusted for fixed header */
+>>>>>>> e275ff9773fbe45ff1fa26c6b3818e0ce430b494
+}
+
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 40px;
+<<<<<<< HEAD
+}
+
+.hero-title {
+  font-size: 3.5em;
+  font-weight: bold;
+}
+
+.hero-description {
+  font-size: 1.8em;
+}
+
+.btn-primary {
+  background-color: #ff6347;
+  color: white;
+  padding: 12px 24px;
+  font-size: 1.2em;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #ffdf00;
+  /* Gold on hover */
+=======
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.hero p {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+}
+
+.btn-primary {
+  background-color: #004080; /* Darker Navy */
+  color: white;
+  padding: 12px 25px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #0059b3; /* Lighter Navy */
+>>>>>>> e275ff9773fbe45ff1fa26c6b3818e0ce430b494
+}
+
+/* Vehicle Rental Section */
+.vehicle-rental {
+  text-align: center;
+<<<<<<< HEAD
+  padding: 50px;
+  background-color: #f0f0f0;
+}
+
+.vehicle {
+  display: inline-block;
+  margin: 20px;
+  width: 280px;
+  text-align: center;
+=======
+  padding: 60px 20px;
+  background-color: #e6f7ff; /* Light Blue */
+}
+
+.vehicle-rental h2 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  color: #003366; /* Navy Blue */
+}
+
+.vehicle-rental p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.vehicle-options {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.vehicle {
+  max-width: 300px;
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #ffffff; /* White for contrast */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.vehicle:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+>>>>>>> e275ff9773fbe45ff1fa26c6b3818e0ce430b494
+}
+
+.vehicle-img {
+  width: 100%;
+<<<<<<< HEAD
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.vehicle-img:hover {
+  transform: scale(1.1);
+  /* Slight zoom effect */
+}
+
+.vehicle h3 {
+  color: #333;
+  margin-top: 10px;
+}
+
+.vehicle p {
+  color: #777;
+=======
+  height: 180px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.vehicle h3 {
+  font-size: 1.6rem;
+  margin: 15px 0;
+}
+
+.vehicle p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.btn-secondary {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #007bff; /* Bright Blue */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-secondary:hover {
+  background-color: #0056b3; /* Darker Blue */
+>>>>>>> e275ff9773fbe45ff1fa26c6b3818e0ce430b494
+}
+
+/* About Section */
+.about {
+<<<<<<< HEAD
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #f7f7f7;
+}
+
+.about h2 {
+  font-size: 2.5em;
+  color: #ff6347;
+}
+
+.about p {
+  font-size: 1.2em;
+  color: #555;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.about button {
+  margin-top: 20px;
+=======
+  background-color: #fffbe6; /* Light Yellow */
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #003366; /* Navy Blue */
+}
+
+.about p {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+/* Testimonials Section */
+.testimonials {
+  background-color: #f9f2f4; /* Light Pink */
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.testimonials h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #003366; /* Navy Blue */
+}
+
+.testimonials blockquote {
+  font-size: 1.3rem;
+  font-style: italic;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.testimonials cite {
+  font-size: 1rem;
+  font-weight: bold;
+>>>>>>> e275ff9773fbe45ff1fa26c6b3818e0ce430b494
+}
+
+/* Footer Section */
+.footer {
+<<<<<<< HEAD
+  background-color: #333;
+  color: white;
+  padding: 40px 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+=======
+  background-color: #003366; /* Navy Blue */
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-content {
+  margin-bottom: 15px;
+}
+
+.social-media ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-media ul li {
+  display: inline-block;
+}
+
+.social-media ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+  transition: color 0.3s;
+}
+
+.social-media ul li a:hover {
+  color: #ffcc00; /* Golden color */
+}
+
+.footer p {
+  font-size: 0.9rem;
+  margin: 0;
+  color: #ccc;
+>>>>>>> e275ff9773fbe45ff1fa26c6b3818e0ce430b494
+}
+
+.social-media ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.social-media a {
+  color: white;
+  font-size: 24px;
+  transition: color 0.3s ease;
+}
+
+.social-media a:hover {
+  color: #ff6347;
+  /* Tomato color on hover */
+}

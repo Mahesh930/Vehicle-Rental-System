@@ -1,0 +1,105 @@
+/* Styles for Registration Form */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.auth-form-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+}
+
+.error-message {
+    color: #ff4d4d;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.submit-btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+.toggle-form {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.toggle-link {
+    color: #007bff;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.toggle-link:hover {
+    color: #0056b3;
+}
+
+.forgot-password-link {
+    color: #007bff;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+    text-decoration: underline;
+}
+
+.forgot-password-link:hover {
+    color: #0056b3;
+}

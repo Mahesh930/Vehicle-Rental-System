@@ -1,0 +1,198 @@
+<<<<<<< HEAD
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Header Styling */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ff6347;
+  /* Tomato red */
+  padding: 20px;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 1.8em;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.navbar ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+
+  color: #ffdf00;
+  /* Gold color on hover */
+}
+
+/* Add space below header to avoid overlapping */
+.about-section {
+  padding: 80px 20px 40px;
+  /* Increased top padding for space below header */
+  background-color: #f8f8f8;
+  text-align: center;
+}
+
+.about-section h1 {
+  padding-top: 20px;
+  margin-top: auto;
+  font-size: 3em;
+  color: #333;
+}
+
+.about-section .subtitle {
+  font-size: 1.2em;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+/* About Content */
+.about-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.text-section {
+  flex: 1;
+  text-align: left;
+}
+
+.text-section ul {
+  margin-top: 20px;
+  list-style-type: square;
+}
+
+.text-section ul li {
+  margin: 10px 0;
+}
+
+.vehicle-counts {
+  margin-top: 40px;
+}
+
+.vehicle-counts h2 {
+  font-size: 1.8em;
+  color: #333;
+}
+
+.vehicle-counts-boxes {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.vehicle-box {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  flex: 1;
+}
+
+.vehicle-box strong {
+  font-size: 1.4em;
+  color: #333;
+}
+
+.vehicle-box p {
+  font-size: 1.2em;
+  color: #555;
+}
+
+/* Image Section */
+.image-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-image {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+/* Footer Styling */
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.footer-content p {
+  font-size: 1em;
+}
+
+.social-media ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.social-media a {
+  color: white;
+  font-size: 1.5em;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.social-media a:hover {
+  color: #ff6347;
+  /* Tomato color on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .text-section {
+    text-align: center;
+  }
+
+  .vehicle-counts-boxes {
+    flex-direction: column;
+  }
+}
+=======
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+>>>>>>> 2363e4f92a4dfadfa7f06a96c24e3d85257abd53
