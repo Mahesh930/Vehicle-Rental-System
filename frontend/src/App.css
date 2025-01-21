@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* General Reset */
 * {
   margin: 0;
@@ -188,11 +187,3 @@
     flex-direction: column;
   }
 }
-=======
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
->>>>>>> 2363e4f92a4dfadfa7f06a96c24e3d85257abd53

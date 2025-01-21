@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import BookNow from "./Pages/BookNow";
@@ -51,24 +50,3 @@ function App() {
 }
 
 export default App;
-=======
-import "./App.css";
-import Login from "./Components/Login";
-import Register from "./Components/Register";
-import { Route, BrowserRouter, Routes } from "react-router-dom";
-
-function App() {
-  return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/signup" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-        </Routes>
-      </BrowserRouter>
-    </>
-  );
-}
-
-export default App;
->>>>>>> 2363e4f92a4dfadfa7f06a96c24e3d85257abd53

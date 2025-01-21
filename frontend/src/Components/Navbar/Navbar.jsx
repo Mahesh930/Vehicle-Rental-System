@@ -35,17 +35,6 @@ const Navbar = () => {
       <li tabIndex={0}>
         <details>
           <summary>Menu</summary>
-          <ul className="p-2 text-white">
-            <li>
-              <a href="/menu">All</a>
-            </li>
-            <li>
-              <a href="/menu">Pizza</a>
-            </li>
-            <li>
-              <a href="/menu">Pasta</a>
-            </li>
-          </ul>
         </details>
       </li>
       <li tabIndex={0}>

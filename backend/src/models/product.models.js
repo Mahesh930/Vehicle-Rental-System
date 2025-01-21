@@ -23,13 +23,13 @@ const productSchema = new mongoose.Schema(
       required: true,
     },
     owner: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+      required: true
     },
     location: {
-        type: String,
-        required: true
+      type: String,
+      required: true
     },
   },
   {
@@ -39,4 +39,4 @@ const productSchema = new mongoose.Schema(
 
 const Product = mongoose.model('Product', productSchema);
 
-export{Product}
+export { Product }

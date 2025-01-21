@@ -1,27 +1,3 @@
-<<<<<<< HEAD
-/* Header */
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #ff6347;
-  /* Tomato red for header background */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  color: white;
-  z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  /* Shadow for depth */
-}
-
-.logo {
-  font-size: 1.8em;
-  font-weight: bold;
-  letter-spacing: 2px;
-=======
 /* General Styles */
 body {
   font-family: Arial, sans-serif;
@@ -61,15 +37,12 @@ body {
 .logo {
   font-size: 1.8rem;
   font-weight: bold;
->>>>>>> e275ff9773fbe45ff1fa26c6b3818e0ce430b494
 }
 
 .navbar ul {
   display: flex;
   gap: 20px;
   list-style: none;
-<<<<<<< HEAD
-=======
   margin: 0;
   padding: 0;
   display: flex;
@@ -78,58 +51,17 @@ body {
 
 .navbar li {
   display: inline;
->>>>>>> e275ff9773fbe45ff1fa26c6b3818e0ce430b494
 }
 
 .navbar a {
   text-decoration: none;
   color: white;
   font-weight: bold;
-<<<<<<< HEAD
-  transition: color 0.3s ease;
-}
-
-.navbar a:hover {
-  color: #ffdf00;
-  /* Gold color for hover */
-}
-
-/* Adjusting the login button and its container */
-.login-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-right: 100px;
-  /* Center the button */
-}
-
-.btn-login {
-  background-color: #4caf50;
-  /* Green background for login button */
-  color: white;
-  padding: 12px 30px;
-  /* Increased padding for better spacing */
-  font-size: 1.2em;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
- 
-}
-
-.btn-login:hover {
-  background-color: #ffdf00;
-  /* Gold on hover */
-=======
   transition: color 0.3s;
 }
 
 .navbar a:hover {
   color: #ffcc00; /* Golden color on hover */
->>>>>>> e275ff9773fbe45ff1fa26c6b3818e0ce430b494
 }
 
 /* Hero Section */
@@ -140,44 +72,15 @@ body {
   padding: 80px 0;
   color: white;
   text-align: center;
-<<<<<<< HEAD
-=======
   display: flex;
   justify-content: center;
   align-items: center;
   padding-top: 80px; /* Adjusted for fixed header */
->>>>>>> e275ff9773fbe45ff1fa26c6b3818e0ce430b494
 }
 
 .hero-overlay {
   background: rgba(0, 0, 0, 0.6);
   padding: 40px;
-<<<<<<< HEAD
-}
-
-.hero-title {
-  font-size: 3.5em;
-  font-weight: bold;
-}
-
-.hero-description {
-  font-size: 1.8em;
-}
-
-.btn-primary {
-  background-color: #ff6347;
-  color: white;
-  padding: 12px 24px;
-  font-size: 1.2em;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.btn-primary:hover {
-  background-color: #ffdf00;
-  /* Gold on hover */
-=======
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -205,23 +108,11 @@ body {
 
 .btn-primary:hover {
   background-color: #0059b3; /* Lighter Navy */
->>>>>>> e275ff9773fbe45ff1fa26c6b3818e0ce430b494
 }
 
 /* Vehicle Rental Section */
 .vehicle-rental {
   text-align: center;
-<<<<<<< HEAD
-  padding: 50px;
-  background-color: #f0f0f0;
-}
-
-.vehicle {
-  display: inline-block;
-  margin: 20px;
-  width: 280px;
-  text-align: center;
-=======
   padding: 60px 20px;
   background-color: #e6f7ff; /* Light Blue */
 }
@@ -260,30 +151,10 @@ body {
 .vehicle:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
->>>>>>> e275ff9773fbe45ff1fa26c6b3818e0ce430b494
 }
 
 .vehicle-img {
   width: 100%;
-<<<<<<< HEAD
-  height: auto;
-  border-radius: 8px;
-  transition: transform 0.3s ease;
-}
-
-.vehicle-img:hover {
-  transform: scale(1.1);
-  /* Slight zoom effect */
-}
-
-.vehicle h3 {
-  color: #333;
-  margin-top: 10px;
-}
-
-.vehicle p {
-  color: #777;
-=======
   height: 180px;
   object-fit: cover;
   border-radius: 5px;
@@ -313,36 +184,10 @@ body {
 
 .btn-secondary:hover {
   background-color: #0056b3; /* Darker Blue */
->>>>>>> e275ff9773fbe45ff1fa26c6b3818e0ce430b494
 }
 
 /* About Section */
 .about {
-<<<<<<< HEAD
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 60px 20px;
-  background-color: #f7f7f7;
-}
-
-.about h2 {
-  font-size: 2.5em;
-  color: #ff6347;
-}
-
-.about p {
-  font-size: 1.2em;
-  color: #555;
-  max-width: 800px;
-  margin: 20px auto;
-}
-
-.about button {
-  margin-top: 20px;
-=======
   background-color: #fffbe6; /* Light Yellow */
   padding: 60px 20px;
   text-align: center;
@@ -383,22 +228,10 @@ body {
 .testimonials cite {
   font-size: 1rem;
   font-weight: bold;
->>>>>>> e275ff9773fbe45ff1fa26c6b3818e0ce430b494
 }
 
 /* Footer Section */
 .footer {
-<<<<<<< HEAD
-  background-color: #333;
-  color: white;
-  padding: 40px 0;
-}
-
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-=======
   background-color: #003366; /* Navy Blue */
   color: white;
   padding: 20px 0;
@@ -436,7 +269,6 @@ body {
   font-size: 0.9rem;
   margin: 0;
   color: #ccc;
->>>>>>> e275ff9773fbe45ff1fa26c6b3818e0ce430b494
 }
 
 .social-media ul {

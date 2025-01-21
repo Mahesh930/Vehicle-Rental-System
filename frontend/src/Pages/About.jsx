@@ -3,13 +3,12 @@ import "../Styles/About.css";
 import { Link } from "react-router-dom";
 import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa"; // Importing React Icons
 
-
 function About() {
-  const vehicleCounts = {
-    car: 50,
-    bike: 30,
-    bicycle: 20,
-  };
+    const vehicleCounts = {
+        car: 50,
+        bike: 30,
+        bicycle: 20,
+    };
     return (
         <div className="about-page">
             {/* Header */}
@@ -32,8 +31,6 @@ function About() {
                     </ul>
                 </nav>
             </header>
-
-<<<<<<< HEAD
             {/* About Section */}
             <section className="about-section">
                 <div className="container">
@@ -164,5 +161,8 @@ function About() {
                 </div>
                 <p>&copy; 2025 Vehicle Rental Services. All rights reserved.</p>
             </footer>
+        </div>
+    );
+}
 
-      
+export default About;
