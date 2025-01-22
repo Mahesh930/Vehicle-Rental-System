@@ -136,4 +136,13 @@ const getAllProductOfUser = asyncHandler(async (req, res) => {
         .json(new ApiResponse(200, products, "All vehicles fetched successfully."));
 })
 
-export { addProduct, updateProduct, deleteProduct, getAllProduct, getAllProductOfUser };
+// get product by location
+const getByLocation = asyncHandler(async (req, res) => {
+    const { location } = req.query;
+    const products = await Product.find({ location });
+    return res
+        .status(200)
+        .json(new ApiResponse(200, products, "All vehicles fetched successfully."));
+})
+
+export { addProduct, updateProduct, deleteProduct, getAllProduct, getAllProductOfUser, getByLocation };
