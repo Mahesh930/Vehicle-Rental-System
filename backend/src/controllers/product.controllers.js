@@ -144,7 +144,7 @@ const getByLocation = asyncHandler(async (req, res) => {
 
     try {
         const products = await Product.find({ location }); // Fetch all matching products
-        console.log('Products by location:', products);
+        // console.log('Products by location:', products);
 
         if (!products || products.length === 0) {
             return res.status(404).json(new ApiResponse(404, [], "No vehicles found for the given location."));
