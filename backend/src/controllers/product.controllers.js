@@ -9,7 +9,7 @@ import fs from "fs";
 //add vehicle details like name, category,available, rentalPricePerDay,location, image, owner, etc
 const addProduct = asyncHandler(async (req, res) => {
     const { name, category, available, rentalPricePerDay, location } = req.body;
-    console.log('User id ', req.user._id);
+    // console.log('User id ', req.user._id);
 
     if (!req.user._id) {
         throw new ApiError(401, "User not authenticated");
@@ -138,11 +138,27 @@ const getAllProductOfUser = asyncHandler(async (req, res) => {
 
 // get product by location
 const getByLocation = asyncHandler(async (req, res) => {
-    const { location } = req.query;
-    const products = await Product.find({ location });
-    return res
-        .status(200)
-        .json(new ApiResponse(200, products, "All vehicles fetched successfully."));
+    let { location } = req.query;
+    // console.log('Products by location:', location);
+    location = location.toLowerCase().trim(); // Ensure no trailing spaces
+
+    try {
+        const products = await Product.find({ location }); // Fetch all matching products
+        console.log('Products by location:', products);
+
+        if (!products || products.length === 0) {
+            return res.status(404).json(new ApiResponse(404, [], "No vehicles found for the given location."));
+        }
+
+        return res
+            .status(200)
+            .json(new ApiResponse(200, products, "All vehicles fetched successfully."));
+    } catch (error) {
+        console.error("Error fetching products by location:", error);
+        return res
+            .status(500)
+            .json(new ApiResponse(500, null, "Failed to fetch vehicles."));
+    }
 })
 
 export { addProduct, updateProduct, deleteProduct, getAllProduct, getAllProductOfUser, getByLocation };

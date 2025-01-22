@@ -118,18 +118,28 @@ const Home = () => {
 
     const findVehicles = async () => {
         try {
-            const location = searchCriteria.city;
+            const location = searchCriteria.city.trim(); // Ensure no trailing spaces
+            console.log("Querying location:", location);
+
             const response = await axios.get(
                 "http://localhost:5000/api/v1/products/getByLocation",
-                {
-                    params: { location },
-                }
+                { params: { location } }
             );
-            console.log(response.data);
 
-            setVehicles(response.data.data);
+            console.log("Fetched Vehicles Data:", response.data.data);
+
+            if (
+                Array.isArray(response.data.data) &&
+                response.data.data.length > 0
+            ) {
+                setVehicles(response.data.data);
+            } else {
+                console.warn("No vehicles found for the given location.");
+                setVehicles([]);
+            }
         } catch (error) {
             console.error("Failed to fetch vehicle data:", error);
+            setVehicles([]); // Reset vehicles on error
         }
     };
 
@@ -198,7 +208,7 @@ const Home = () => {
 
                 {vehicles.length > 0 && (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {cars.map((car, index) => (
+                        {vehicles.map((car, index) => (
                             <div
                                 key={index}
                                 className="bg-white rounded-lg shadow-lg overflow-hidden"
@@ -223,6 +233,9 @@ const Home = () => {
                                             ? "Available"
                                             : "Not Available"}
                                     </p>
+                                </div>
+                                <div className="btn px-4 py-2 w-32 bg-blue-500 text-white text-lg rounded-full cursor-pointer hover:bg-blue-700 transition duration-300">
+                                    Book Now
                                 </div>
                             </div>
                         ))}
