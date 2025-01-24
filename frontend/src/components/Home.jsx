@@ -2,82 +2,9 @@ import React, { useState, useEffect } from "react";
 import { FaCity } from "react-icons/fa";
 import blurImage from "../assets/images/bg.jpeg";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const VEHICLE_DATA = [
-    {
-        id: 1,
-        name: "VW Golf 6",
-        brand: "Volkswagen",
-        category: "Hatchback",
-        rentPerDay: 450,
-        image: "../src/assets/images/golf.jpg",
-    },
-    {
-        id: 2,
-        name: "Toyota Fortuner",
-        brand: "Toyota",
-        category: "SUV",
-        rentPerDay: 750,
-        image: "../src/assets/images/fortuner.jpg",
-    },
-    {
-        id: 3,
-        name: "Honda City",
-        brand: "Honda",
-        category: "Sedan",
-        rentPerDay: 500,
-        image: "../src/assets/images/city.jpg",
-    },
-    {
-        id: 4,
-        name: "Lamborghini Aventador",
-        brand: "Lamborghini",
-        category: "Rocket",
-        rentPerDay: 9999,
-        image: "../src/assets/images/lambo.jpg",
-    },
-    {
-        id: 5,
-        name: "Mercedes-Benz GLK",
-        brand: "Mercedes-Benz",
-        category: "SUV",
-        rentPerDay: 5999,
-        image: "../src/assets/images/gls.jpg",
-    },
-    {
-        id: 6,
-        name: "Boattail",
-        brand: "Rolls Royce",
-        category: "Luxury",
-        rentPerDay: 99999,
-        image: "../src/assets/images/boattail.jpg",
-    },
-    {
-        id: 7,
-        name: "Ford Mustang",
-        brand: "Ford",
-        category: "Sports",
-        rentPerDay: 10000,
-        image: "../src/assets/images/mastang.jpg",
-    },
-    {
-        id: 8,
-        name: "Velar",
-        brand: "Range Rover",
-        category: "Sports",
-        rentPerDay: 9950,
-        image: "../src/assets/images/velar.jpg",
-    },
-    {
-        id: 9,
-        name: "Ghost",
-        brand: "Rolls Royce",
-        category: "Luxury",
-        rentPerDay: 99999,
-        image: "../src/assets/images/ghost.jpg",
-    },
-];
+
 
 const Home = () => {
     const [vehicles, setVehicles] = useState([]);
@@ -159,9 +86,9 @@ const Home = () => {
         >
             <div className="absolute inset-0 bg-black bg-opacity-50"></div>
 
-            <div className="relative z-10 text-white text-center p-8">
+            <div className="relative z-10 text-white text-center p-8 mt-16">
                 <h1 className="text-4xl font-extrabold mb-2">
-                    <span className="text-blue-400">Rent</span>Vehicle
+                    <span className="text-blue-400">Chal</span>Jauu
                 </h1>
                 <p className="text-sm italic">
                     Customer safety is our Priority..
@@ -207,16 +134,16 @@ const Home = () => {
                 </div>
 
                 {vehicles.length > 0 && (
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-10">
                         {vehicles.map((car, index) => (
                             <div
                                 key={index}
-                                className="bg-white rounded-lg shadow-lg overflow-hidden"
+                                className="bg-white rounded-lg shadow-lg overflow-hidden h-96"
                             >
                                 <img
                                     src={car.vehicleImage}
                                     alt={car.name}
-                                    className="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
+                                    className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
                                 />
                                 <div className="p-6 grid grid-cols-2 ">
                                     <h3 className="text-2xl font-bold text-gray-800">
@@ -234,9 +161,11 @@ const Home = () => {
                                             : "Not Available"}
                                     </p>
                                 </div>
-                                <div className="btn px-4 py-2 w-32 bg-blue-500 text-white text-lg rounded-full cursor-pointer hover:bg-blue-700 transition duration-300">
+                                <Link
+                                to="/book-now"
+                                 className="btn px-4 py-2 w-32 bg-blue-500 text-white text-lg rounded-full cursor-pointer hover:bg-blue-700 transition duration-300">
                                     Book Now
-                                </div>
+                                </Link>
                             </div>
                         ))}
                     </div>

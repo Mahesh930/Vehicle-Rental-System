@@ -15,7 +15,7 @@ const Footer = () => {
           {/* Logo and Description */}
           <div className="w-full md:w-1/3 text-center md:text-left mb-8 md:mb-0">
             <h1 className="text-3xl font-bold">
-              Rent<span className="text-yellow-300">Vehicle</span>
+              Chal<span className="text-yellow-300">Jauu</span>
             </h1>
             <p className="mt-4 text-lg text-gray-200">
               Trusted platform for renting vehicles anytime, anywhere.
@@ -109,8 +109,8 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="flex flex-wrap justify-between items-center text-lg text-gray-200">
           <p>
-            &copy; {new Date().getFullYear()} RentVehicle. All rights
-            reserved@Module3.
+            &copy; {new Date().getFullYear()} ChalJauu. All rights
+            reserved  @ChalJauu.
           </p>
           <div className="space-x-6">
             <a href="/terms" className="hover:text-yellow-300 transition">

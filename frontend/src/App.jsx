@@ -17,6 +17,7 @@ import "slick-carousel/slick/slick-theme.css";
 import About from './pages/About';
 import Testimonials from './pages/Testimonal';
 import Blog from './pages/Blog';
+import BookingPage from './pages/BookingPage';
 
 
 
@@ -43,6 +44,7 @@ const App = () => {
               element={<UserBookingDetails />}
             />
              <Route path="/payment" element={<PaymentPage />} />
+             <Route path="/book-now" element={<BookingPage/>} />
 
           </Route>
         </Routes>

@@ -25,10 +25,10 @@ const Home1 = () => {
           {/* Content */}
           <div className="relative z-10 text-white text-center p-5 max-w-3xl mx-auto">
             <h1 className="text-5xl font-extrabold mb-6 leading-tight tracking-wide" style={{ fontFamily: 'Poppins, sans-serif' }}>
-              <span className="text-blue-400">Rent</span>Vehicle
+              <span className="text-blue-400">Chal</span>Jauu
             </h1>
             <p className="text-lg mt-6 leading-relaxed font-bold" style={{ fontFamily: 'revert-layer', lineHeight: '1.8', paddingTop: '10px', fontSize: '20px' }}>
-              Welcome to RentVehicle, your trusted platform for renting vehicles anytime, anywhere. We offer a wide range of vehicles to meet your travel needs, ensuring convenience, quality service, and a seamless booking experience.
+              Welcome to ChalJauu, your trusted platform for renting vehicles anytime, anywhere. We offer a wide range of vehicles to meet your travel needs, ensuring convenience, quality service, and a seamless booking experience.
             </p>
 
             {/* Book a Ride Button */}
