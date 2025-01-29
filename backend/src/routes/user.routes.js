@@ -1,8 +1,10 @@
 import express from "express";
 import { registerUser, loginUser, logoutUser, updateUser, deleteUser } from "../controllers/user.controllers.js";
 import { verifyJWT } from "../middleware/auth.js";
+import cors from "cors";
 
 const router = express.Router();
+router.use(cors());
 
 router.route("/register").post(registerUser);
 router.route("/login").post(loginUser);

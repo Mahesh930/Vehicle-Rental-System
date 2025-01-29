@@ -14,11 +14,12 @@ const Login = () => {
         const Data = { email, password };
 
         try {
+            console.log("API URL ", import.meta.env.VITE_API_URL);
             const response = await axios.post(
-                "http://localhost:5000/api/v1/users/login",
+                `${import.meta.env.VITE_API_URL}/api/v1/users/login`,
                 Data
             );
-            console.log(response.data);
+            console.log("login Data", response.data);
 
             // console.log(response);
             if (response.status === 200) {
@@ -30,7 +31,7 @@ const Login = () => {
                 );
 
                 // Navigate to the home page after successful login
-                navigate("/home1"); // Replace "/home1" with your actual home route
+                navigate("/"); // Replace "/home1" with your actual home route
             } else {
                 toast.error("Login failed. Please try again.");
             }

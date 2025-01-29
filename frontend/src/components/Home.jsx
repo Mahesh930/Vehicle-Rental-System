@@ -162,8 +162,9 @@ const Home = () => {
                                     </p>
                                 </div>
                                 <Link
-                                to="/book-now"
-                                 className="btn px-4 py-2 w-32 bg-blue-500 text-white text-lg rounded-full cursor-pointer hover:bg-blue-700 transition duration-300">
+                                    to="/book-now"
+                                    className="btn px-4 py-2 w-32 bg-blue-500 text-white text-lg rounded-full cursor-pointer hover:bg-blue-700 transition duration-300"
+                                >
                                     Book Now
                                 </Link>
                             </div>

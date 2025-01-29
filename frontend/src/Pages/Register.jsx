@@ -19,15 +19,17 @@ const Register = () => {
         // console.log(formData);
 
         try {
+            console.log("API URL ",process.env.REACT_APP_BASE_URL);
+            
             // Mock API call using Axios
             const response = await axios.post(
-                "http://localhost:5000/api/v1/users/register",
+                `${process.env.REACT_APP_BASE_URL}/api/v1/users/register`,
                 formData
             );
             console.log(response);
 
             if (response.data.statusCode === 200) {
-                toast.success("Registration successful!");
+                toast.success(response.data.message || "Registration successful!");
                 // Redirect to login page after successful registration
                 navigate("/login");
             }
@@ -41,6 +43,10 @@ const Register = () => {
 
     return (
         <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-black">
+            <ToastContainer
+                autoClose={3000}
+                theme="dark"
+            />
             <div className="w-full max-w-md p-8 space-y-6 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl shadow-xl transform transition duration-300 hover:scale-105">
                 <h2 className="text-3xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500">
                     Create Account
