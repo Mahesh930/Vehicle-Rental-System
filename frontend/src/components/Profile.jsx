@@ -19,7 +19,7 @@ const Profile = ({ user }) => {
         // localStorage.removeItem("accessToken");
         try {
             const response = await axios.post(
-                "http://localhost:5000/api/v1/users/logout",
+                `${import.meta.env.VITE_API_URL}/api/v1/users/logout`,
                 {}, // Empty request body
                 {
                     headers: {
@@ -28,7 +28,7 @@ const Profile = ({ user }) => {
                 }
             );
 
-            if (response.status === 200) {
+            if (response.data.statusCode === 200) {
                 // Clear tokens from localStorage
                 localStorage.removeItem("accessToken");
                 localStorage.removeItem("refreshToken");

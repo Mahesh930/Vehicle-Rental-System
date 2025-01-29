@@ -15,20 +15,20 @@ const Login = () => {
 
         try {
             console.log("API URL ", import.meta.env.VITE_API_URL);
-            const response = await axios.post(
+            const { data } = await axios.post(
                 `${import.meta.env.VITE_API_URL}/api/v1/users/login`,
                 Data
             );
-            console.log("login Data", response.data);
+            console.log("login Data", data.user);
 
-            // console.log(response);
-            if (response.status === 200) {
+            if (data.statusCode === 200) {
                 toast.success("Login successful!");
 
-                localStorage.setItem(
-                    "refreshToken",
-                    response.data.refreshToken
-                );
+                localStorage.setItem("refreshToken", data.refreshToken);
+                console.log("accessToken", data.refreshToken);
+
+                localStorage.setItem("accessToken", data.accessToken);
+                console.log("accessToken", data.accessToken);
 
                 // Navigate to the home page after successful login
                 navigate("/"); // Replace "/home1" with your actual home route

@@ -8,10 +8,10 @@ const PopularCars = () => {
     const vehicleData = async () => {
         try {
             const response = await axios.get(
-                "http://localhost:5000/api/v1/products/getVehicles"
+                `${import.meta.env.VITE_API_URL}/api/v1/products/getVehicles`
             );
             console.log(response.data);
-            
+
             setCars(response.data.data); // Ensure `response.data` contains the correct structure
         } catch (error) {
             console.error("Failed to fetch vehicle data:", error);
@@ -43,8 +43,7 @@ const PopularCars = () => {
                                 {car.name}
                             </h3>
                             <p className="text-lg text-gray-600 mt-2">
-                                Price : 
-                                {car.rentalPricePerDay}/hr
+                                Price :{car.rentalPricePerDay}/hr
                             </p>
                             <p className="text-lg text-gray-600 mt-2">
                                 {car.location}

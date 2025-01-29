@@ -49,7 +49,7 @@ const Home = () => {
             console.log("Querying location:", location);
 
             const response = await axios.get(
-                "http://localhost:5000/api/v1/products/getByLocation",
+                `${import.meta.env.VITE_API_URL}/api/v1/products/getByLocation`,
                 { params: { location } }
             );
 
