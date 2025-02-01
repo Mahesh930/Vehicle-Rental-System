@@ -6,19 +6,19 @@ import 'slick-carousel/slick/slick-theme.css';
 const testimonials = [
   {
     id: 1,
-    image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: './src/img/user1.jpg',
     review: 'This service is fantastic! I highly recommend it to everyone.',
     rating: 5,
   },
   {
     id: 2,
-    image: 'https://plus.unsplash.com/premium_photo-1689568126014-06fea9d5d341?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D',
+    image: './src/img/user2.jpg',
     review: 'Excellent customer support and user-friendly interface.',
     rating: 4,
   },
   {
     id: 3,
-    image: 'https://plus.unsplash.com/premium_photo-1690407617542-2f210cf20d7e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D',
+    image: './src/img/user3.jpeg',
     review: 'Great experience overall!',
     rating: 5,
   },

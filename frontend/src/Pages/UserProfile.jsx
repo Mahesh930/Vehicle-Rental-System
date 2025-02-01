@@ -1,221 +1,116 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState } from "react";
+import backgroundImage from "../img/b1.jpg"; // Update the path as needed
+import profileImage from "../img/profile.png"; // Add a placeholder or user's profile image
+import toyotaImage from "../img/bike.jpg"; // Add images for vehicles
+import hondaImage from "../img/car.jpg"; // Add images for vehicles
 
-const UserProfile = () => {
-  const [user, setUser] = useState({
-    name: "",
-    email: "",
-    phoneNumber: "",
-    address: "",
-    profilePicture: "",
+const Profile = () => {
+  const [userProfile, setUserProfile] = useState({
+    name: "John Doe",
+    email: "johndoe@example.com",
+    phone: "+1 123 456 7890",
   });
 
-  const [isEditing, setIsEditing] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const rentalHistory = [
+    {
+      id: 1,
+      vehicle: "Sport Bike",
+      rentDate: "2025-01-01",
+      rentTime: "10:00 AM",
+      returnDate: "2025-01-05",
+      returnTime: "02:00 PM",
+      amount: "200",
+      image: toyotaImage,
+    },
+    {
+      id: 2,
+      vehicle: "SUV",
+      rentDate: "2025-01-10",
+      rentTime: "09:00 AM",
+      returnDate: "2025-01-15",
+      returnTime: "11:30 AM",
+      amount: "300",
+      image: hondaImage,
+    },
+  ];
 
-  useEffect(() => {
-    // Fetch user details
-    const fetchUserDetails = async () => {
-      try {
-        const response = await axios.get("/api/user"); // Update this endpoint to match your backend
-        setUser(response.data);
-      } catch (error) {
-        console.error("Error fetching user details:", error);
-        setError("Failed to fetch user details. Please try again later.");
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    fetchUserDetails();
-  }, []);
+  const handleEditProfile = () => {
+    const name = prompt("Enter your name:", userProfile.name);
+    const email = prompt("Enter your email:", userProfile.email);
+    const phone = prompt("Enter your phone number:", userProfile.phone);
 
-  const handleUpdate = async () => {
-    try {
-      await axios.put("/api/user", user); // Update endpoint accordingly
-      setIsEditing(false);
-      alert("Profile updated successfully!");
-    } catch (error) {
-      console.error("Error updating profile:", error);
-      setError("Failed to update profile. Please try again.");
+    if (name && email && phone) {
+      setUserProfile({ name, email, phone });
     }
   };
 
-  const handleCancel = () => {
-    // Revert the changes by fetching user details again
-    setIsEditing(false);
-    setUser({
-      name: user.name,
-      email: user.email,
-      phoneNumber: user.phoneNumber,
-      address: user.address,
-      profilePicture: user.profilePicture,
-    });
-  };
-
-  const handleProfilePictureChange = (e) => {
-    setUser({
-      ...user,
-      profilePicture: URL.createObjectURL(e.target.files[0]), // Handle profile picture preview
-    });
-  };
-
-  if (isLoading) {
-    return (
-      <div className="text-center p-4">
-        <p>Loading your profile...</p>
-      </div>
-    );
-  }
-
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="bg-white shadow-md rounded-lg p-8 w-full max-w-md">
-        <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
-          User Profile
-        </h2>
+    <div
+      className="min-h-screen bg-cover bg-center flex flex-col items-center justify-center"
+      style={{ backgroundImage: `url(${backgroundImage})` }}
+    >
+      {/* Container for Profile and Rental History (Two horizontal sections) */}
+      <div className="w-full max-w-5xl flex flex-col sm:flex-row gap-6 mt-6 p-4 mt-16">
+        
+        {/* Profile Section */}
+        <div className="w-full sm:w-1/2 p-4 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-600 rounded-3xl shadow-xl opacity-90">
+          <img
+            src={profileImage}
+            alt="Profile"
+            className="w-28 h-28 rounded-full border-4 border-white shadow-xl transform hover:scale-110 transition-all duration-500"
+          />
+          <h1 className="text-3xl font-extrabold text-white mt-4 tracking-wider drop-shadow-lg">
+            Welcome, {userProfile.name}
+          </h1>
+          <p className="text-white mt-2 text-base">{userProfile.email}</p>
+          <p className="text-white text-base">{userProfile.phone}</p>
+          <button
+            onClick={handleEditProfile}
+            className="mt-4 px-5 py-2 bg-pink-600 text-white font-bold rounded-lg hover:bg-pink-500 transition duration-200 transform hover:scale-105"
+          >
+            Edit Profile
+          </button>
+        </div>
 
-        {error && <p className="text-red-500 text-center mb-4">{error}</p>}
+        {/* Rental History Section */}
+        <div className="w-full sm:w-1/2 p-4 bg-gradient-to-r from-blue-600 to-purple-700 rounded-3xl shadow-xl opacity-90">
+          <h2 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-red-600 mb-4 text-center">
+            Your Rental History
+          </h2>
+          {/* Rental History Cards */}
+          <div className="w-full flex flex-col gap-6">
+            {rentalHistory.map((rental) => (
+              <div
+                key={rental.id}
+                className="bg-gradient-to-r from-blue-600 to-purple-700 p-5 rounded-lg shadow-2xl flex flex-col sm:flex-row transform hover:scale-105 transition-all duration-500"
+              >
+                {/* Vehicle Image */}
+                <img
+                  src={rental.image}
+                  alt={rental.vehicle}
+                  className="w-full sm:w-44 h-44 object-cover rounded-lg mb-4 sm:mb-0 sm:mr-4 shadow-lg transform hover:scale-110 transition-all duration-500"
+                />
 
-        <form>
-          {/* Profile Picture */}
-          <div className="flex justify-center mb-4">
-            {user.profilePicture ? (
-              <img
-                src={user.profilePicture}
-                alt="Profile"
-                className="w-24 h-24 rounded-full object-cover"
-              />
-            ) : (
-              <div className="w-24 h-24 rounded-full bg-gray-300 flex items-center justify-center">
-                <span className="text-white text-xl">No Picture</span>
+                {/* Rental Details */}
+                <div className="flex flex-col justify-between">
+                  <h3 className="text-2xl font-bold text-white drop-shadow-lg mb-2">{rental.vehicle}</h3>
+                  <p className="text-white text-base">
+                    <strong>Rent Date:</strong> {rental.rentDate} at {rental.rentTime}
+                  </p>
+                  <p className="text-white text-base">
+                    <strong>Return Date:</strong> {rental.returnDate} at {rental.returnTime}
+                  </p>
+                  <p className="text-white font-semibold text-base">
+                    <strong>Amount Paid:</strong> ${rental.amount}
+                  </p>
+                </div>
               </div>
-            )}
+            ))}
           </div>
-
-          {/* Name Field */}
-          <div className="mb-4">
-            <label
-              htmlFor="name"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              value={user.name}
-              onChange={(e) => setUser({ ...user, name: e.target.value })}
-              disabled={!isEditing}
-              placeholder="Enter your name"
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm"
-            />
-          </div>
-
-          {/* Email Field (view-only) */}
-          <div className="mb-4">
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              value={user.email}
-          
-              placeholder="Your email"
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm"
-            />
-          </div>
-
-          {/* Phone Number Field */}
-          <div className="mb-4">
-            <label
-              htmlFor="phoneNumber"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Phone Number
-            </label>
-            <input
-              type="text"
-              id="phoneNumber"
-              value={user.phoneNumber}
-              onChange={(e) =>
-                setUser({ ...user, phoneNumber: e.target.value })
-              }
-              disabled={!isEditing}
-              placeholder="Enter your phone number"
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm"
-            />
-          </div>
-
-          {/* Address Field */}
-          <div className="mb-4">
-            <label
-              htmlFor="address"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Address
-            </label>
-            <textarea
-              id="address"
-              value={user.address}
-              onChange={(e) => setUser({ ...user, address: e.target.value })}
-              disabled={!isEditing}
-              placeholder="Enter your address"
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm"
-            />
-          </div>
-
-          {/* Profile Picture Input (optional) */}
-          {isEditing && (
-            <div className="mb-4">
-              <label
-                htmlFor="profilePicture"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Profile Picture
-              </label>
-              <input
-                type="file"
-                id="profilePicture"
-                onChange={handleProfilePictureChange}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm"
-              />
-            </div>
-          )}
-        </form>
-
-        <div className="mt-6 flex justify-between">
-          {isEditing ? (
-            <>
-              <button
-                className="px-4 py-2 bg-green-500 text-white rounded"
-                onClick={handleUpdate}
-              >
-                Save Changes
-              </button>
-              <button
-                className="px-4 py-2 bg-gray-500 text-white rounded"
-                onClick={handleCancel}
-              >
-                Cancel
-              </button>
-            </>
-          ) : (
-            <button
-              className="px-4 py-2 bg-blue-500 text-white rounded"
-              onClick={() => setIsEditing(true)}
-            >
-              Edit Profile
-            </button>
-          )}
         </div>
       </div>
     </div>
   );
 };
 
-export default UserProfile;
+export default Profile;

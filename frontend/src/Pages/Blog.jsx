@@ -1,58 +1,58 @@
-// src/pages/Blog.jsx
 import React from "react";
-import { Link } from "react-router-dom";
 
 const Blog = () => {
   // Blog post data array with vehicle-related content
   const blogPosts = [
     {
-      title: "Top 5 Tips for Maintaining Your Rental Vehicle",
+      title: "Top 5 Tips for Maintaining Your Rental Bicycle",
       content:
-        "Keeping your rental vehicle in good condition is essential for a smooth and safe journey. Here are some maintenance tips: check tire pressure, ensure oil levels are adequate, clean the vehicle regularly, and always report any issues immediately.",
+        "Maintaining your rental bicycle is key to ensuring a safe and enjoyable ride. Start by regularly checking the tire pressure, as properly inflated tires prevent flats and ensure a smoother ride. Keep the chain lubricated to avoid rust and ensure smooth gear shifting, especially after riding in wet or dusty conditions. Always inspect the brakes before each ride, ensuring they’re responsive for safe stopping.",
       date: "January 21, 2025",
-      image:
-        "https://images.unsplash.com/photo-1508974239320-0a029497e820?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGNhciUyMG1haW50YW5lbmNlfGVufDB8fDB8fHww", // Replace with actual images
+      image: "./src/img/bicycle.jpg",
     },
     {
       title: "New Vehicles Available for Rent This Year!",
       content:
-        "We’re excited to announce that we have added new models to our fleet. From luxury sedans to family-friendly SUVs, we’ve got the perfect vehicle for your next trip. Book now and enjoy a comfortable ride.",
+        "We’re thrilled to introduce new models to our fleet! From sleek luxury sedans to compact yet powerful cars, we have the perfect ride for your next journey. Book now and experience unmatched comfort and style on the road.",
       date: "January 19, 2025",
-      image:
-        "https://d2m3nfprmhqjvd.cloudfront.net/blog/20231103174155/new-Tata-Safari-1160x653.webp", // Replace with actual images
+      image: "./src/img/car.jpg",
     },
     {
-      title: "How to Choose the Right Vehicle for Your Road Trip",
+      title: "How to Choose the Right Bike for Your Road Trip",
       content:
-        "Planning a road trip? It's crucial to choose the right vehicle for comfort and efficiency. Consider the number of passengers, luggage space, and fuel economy. Our selection of SUVs and minivans are perfect for long drives.",
+        "Choosing the right bike for your road trip is crucial for ensuring comfort and enjoyment throughout the journey. First, consider the terrain you'll be riding on—if you're tackling rough trails or diverse landscapes, a mountain bike with sturdy tires and suspension is ideal. For smoother, paved roads, a road or touring bike will provide a faster and more comfortable ride.",
       date: "January 15, 2025",
-      image:
-        "https://images.pexels.com/photos/376361/pexels-photo-376361.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Replace with actual images
+      image: "./src/img/bike.jpg",
     },
   ];
 
   return (
-    <div className="container mx-auto p-6">
-      <h1 className="text-5xl font-bold text-center text-gray-800 mb-12">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 py-16 px-6">
+      {/* Title Section */}
+      <h1 className="text-5xl font-extrabold text-center text-transparent bg-gradient-to-r from-purple-600 via-pink-500 to-red-400 bg-clip-text mb-12 mt-8">
         Our Blogs
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      {/* Blog Posts Section */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {blogPosts.map((post, index) => (
           <div
             key={index}
-            className="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300"
+            className="bg-white shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-300"
           >
+            {/* Blog Image */}
             <img
               src={post.image}
               alt={post.title}
-              className="w-full h-56 object-cover"
+              className="w-full h-56 object-cover transition-opacity duration-300 hover:opacity-90"
             />
+            {/* Blog Content */}
             <div className="p-6">
-              <h2 className="text-2xl font-semibold text-gray-800">
+              <h2 className="text-2xl font-bold text-gray-800 hover:text-purple-600 transition-colors duration-300">
                 {post.title}
               </h2>
               <p className="text-sm text-gray-500 mb-4">{post.date}</p>
-              <p className="text-gray-600">{post.content}</p>
+              <p className="text-gray-600 leading-relaxed">{post.content}</p>
             </div>
           </div>
         ))}

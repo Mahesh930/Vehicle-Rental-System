@@ -3,6 +3,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
+import blurImage from "../img/b2.jpg"; // Your background image
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -14,24 +15,33 @@ const Login = () => {
         const Data = { email, password };
 
         try {
-            console.log("API URL ", import.meta.env.VITE_API_URL);
-            const { data } = await axios.post(
+            const response = await axios.post(
                 `${import.meta.env.VITE_API_URL}/api/v1/users/login`,
                 Data
             );
-            console.log("login Data", data.user);
+            console.log(response.data);
 
-            if (data.statusCode === 200) {
+            // console.log(response);
+            if (response.data.statusCode === 200) {
                 toast.success("Login successful!");
 
-                localStorage.setItem("refreshToken", data.refreshToken);
-                console.log("accessToken", data.refreshToken);
+                localStorage.setItem(
+                    "refreshToken",
+                    response.data.data.refreshToken
+                );
+                // console.log("accessToken", response.data.data.refreshToken);
 
-                localStorage.setItem("accessToken", data.accessToken);
-                console.log("accessToken", data.accessToken);
+                localStorage.setItem(
+                    "accessToken",
+                    response.data.data.accessToken
+                );
+                // console.log("accessToken", response.data.data.accessToken);
 
                 // Navigate to the home page after successful login
                 navigate("/"); // Replace "/home1" with your actual home route
+                setTimeout(() => {
+                    window.location.reload();
+                }, 50);
             } else {
                 toast.error("Login failed. Please try again.");
             }
@@ -42,19 +52,39 @@ const Login = () => {
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-black">
+        <div
+            className="flex items-center justify-center mt-14 min-h-screen bg-cover bg-center"
+            style={{
+                backgroundImage: `url(${blurImage})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+            }}
+        >
             <ToastContainer
+                position="top-center"
                 autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={true}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
                 theme="dark"
             />
-            <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-xl shadow-lg w-full max-w-md transform transition-all duration-300 hover:scale-105">
-                <h2 className="text-3xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500 mb-8">
+            <div className="w-full max-w-md p-8 space-y-6 bg-gradient-to-br from-gray-800 to-purple-900 rounded-2xl shadow-xl transform transition duration-300 hover:scale-105">
+                <h2 className="text-4xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-yellow-400 mb-8 animate__animated animate__fadeInUp">
                     Welcome Back
                 </h2>
-                <form onSubmit={handleSubmit}>
+
+                <form
+                    onSubmit={handleSubmit}
+                    className="space-y-6"
+                >
                     <div className="mb-6">
                         <label
-                            className="block text-gray-400 font-medium mb-2"
+                            className="block text-gray-100 font-medium mb-2"
                             htmlFor="email"
                         >
                             Email
@@ -65,13 +95,14 @@ const Login = () => {
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             placeholder="Enter your email"
-                            className="w-full px-4 py-2 border-none rounded-lg bg-gray-800 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                            className="w-full px-4 py-3 border-none rounded-lg bg-gray-800 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
                             required
                         />
                     </div>
+
                     <div className="mb-6">
                         <label
-                            className="block text-gray-400 font-medium mb-2"
+                            className="block text-gray-100 font-medium mb-2"
                             htmlFor="password"
                         >
                             Password
@@ -82,31 +113,34 @@ const Login = () => {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             placeholder="Enter your password"
-                            className="w-full px-4 py-2 border-none rounded-lg bg-gray-800 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                            className="w-full px-4 py-3 border-none rounded-lg bg-gray-800 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
                             required
                         />
                     </div>
+
                     <button
                         type="submit"
-                        className="w-full py-3 px-4 bg-gradient-to-r from-purple-600 to-blue-500 text-white font-bold rounded-lg shadow-md hover:from-purple-700 hover:to-blue-600 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-900 transform hover:scale-105 transition-transform duration-300"
+                        className="w-full py-3 px-4 bg-gradient-to-r from-purple-600 to-blue-500 text-white font-bold rounded-lg shadow-lg hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-900 transform hover:scale-105 transition-transform duration-300"
                     >
                         Login
                     </button>
                 </form>
-                <p className="text-center text-gray-400 mt-6">
+
+                <p className="text-center text-white-400 mt-6">
                     Don't have an account?{" "}
                     <a
                         href="/register"
-                        className="text-purple-400 hover:underline hover:text-purple-500"
+                        className="text-green-400 hover:underline hover:text-purple-500"
                     >
                         REGISTER
                     </a>
                 </p>
-                <p className="text-center text-gray-400 mt-6">
+
+                <p className="text-center text-white-400 mt-6">
                     Forgot password{" "}
                     <a
                         href="/forget-password"
-                        className="text-purple-400 hover:underline hover:text-purple-500"
+                        className="text-green-400 hover:underline hover:text-purple-500"
                     >
                         click HERE
                     </a>

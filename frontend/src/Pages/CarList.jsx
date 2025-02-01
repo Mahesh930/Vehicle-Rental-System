@@ -25,12 +25,12 @@ const PopularCars = () => {
     return (
         <div className="min-h-screen bg-gray-100 py-16 px-8">
             <h2 className="text-4xl font-extrabold text-center text-gray-800 mb-12">
-                Our Popular Cars
+                Our Popular Vehicles
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {cars.map((car, index) => (
+                {cars.map((car) => (
                     <div
-                        key={index}
+                        key={car.id}
                         className="bg-white rounded-lg shadow-lg overflow-hidden"
                     >
                         <img
@@ -38,12 +38,12 @@ const PopularCars = () => {
                             alt={car.name}
                             className="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
                         />
-                        <div className="p-6 grid grid-cols-2 ">
+                        <div className="p-6 grid grid-cols-2">
                             <h3 className="text-2xl font-bold text-gray-800">
                                 {car.name}
                             </h3>
                             <p className="text-lg text-gray-600 mt-2">
-                                Price :{car.rentalPricePerDay}/hr
+                                {car.rentalPricePerDay}
                             </p>
                             <p className="text-lg text-gray-600 mt-2">
                                 {car.location}
@@ -52,6 +52,12 @@ const PopularCars = () => {
                                 {car.available ? "Available" : "Not Available"}
                             </p>
                         </div>
+                        <Link
+                            to="/book-now"
+                            className="btn px-4 py-2 w-32 bg-blue-500 text-white text-lg rounded-full cursor-pointer hover:bg-blue-700 transition duration-300"
+                        >
+                            Book Now
+                        </Link>
                     </div>
                 ))}
             </div>
