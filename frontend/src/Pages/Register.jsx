@@ -23,7 +23,7 @@ const Register = () => {
                 `${process.env.REACT_APP_BASE_URL}/api/v1/users/register`,
                 formData
             );
-            console.log(response);
+            // console.log(response);
 
             if (response.data.statusCode === 200) {
                 toast.success("Registration successful!");

@@ -68,6 +68,7 @@ const Navbar = () => {
             if (response.data.statusCode === 200) {
                 localStorage.removeItem("accessToken");
                 localStorage.removeItem("refreshToken");
+                localStorage.removeItem("loggedInUser");
                 toast.success("Logged out successfully!");
                 navigate("/");
                 setTimeout(() => {
@@ -158,12 +159,20 @@ const Navbar = () => {
                 >
                     {user ? (
                         <>
-                            <img
-                                src={profileImg}
-                                alt="Profile"
-                                className="h-10 w-10 rounded-full cursor-pointer border-2 border-white shadow-lg hover:shadow-xl transition-shadow"
+                            <div
+                                className="h-10 w-10 flex items-center justify-center rounded-full cursor-pointer border-2 border-white shadow-lg hover:shadow-xl transition-shadow bg-purple-600 text-white font-bold"
                                 onClick={toggleProfileDropdown}
-                            />
+                            >
+                                {user ? (
+                                    JSON.parse(
+                                        localStorage.getItem("loggedInUser")
+                                    )
+                                        ?.name.charAt(0)
+                                        .toUpperCase()
+                                ) : (
+                                    <FaUser />
+                                )}
+                            </div>
                             {isProfileDropdownOpen && (
                                 <div className="absolute top-14 right-0 w-48 bg-gradient-to-r from-purple-600 to-pink-500 border border-gray-300 shadow-lg rounded-lg z-10 text-white">
                                     <Link

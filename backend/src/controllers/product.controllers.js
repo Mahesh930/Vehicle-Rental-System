@@ -8,8 +8,11 @@ import fs from "fs";
 
 //add vehicle details like name, category,available, rentalPricePerDay,location, image, owner, etc
 const addProduct = asyncHandler(async (req, res) => {
-    const { name, category, available, rentalPricePerDay, location } = req.body;
+    const { name,  available, rentalPricePerDay } = req.body;
     // console.log('User id ', req.user._id);
+    let { category, location }= req.body;
+    category = category.toLowerCase().trim(); // Ensure no trailing spaces
+    location = location.toLowerCase().trim(); // Ensure no trailing spaces
 
     if (!req.user._id) {
         throw new ApiError(401, "User not authenticated");
@@ -138,16 +141,17 @@ const getAllProductOfUser = asyncHandler(async (req, res) => {
 
 // get product by location
 const getByLocation = asyncHandler(async (req, res) => {
-    let { location } = req.query;
+    let { location, category } = req.query;
     // console.log('Products by location:', location);
     location = location.toLowerCase().trim(); // Ensure no trailing spaces
+    category = category.toLowerCase().trim(); // Ensure no trailing spaces
 
     try {
-        const products = await Product.find({ location }); // Fetch all matching products
+        const products = await Product.find({ location, category }); // Fetch all matching products
         // console.log('Products by location:', products);
 
         if (!products || products.length === 0) {
-            return res.status(404).json(new ApiResponse(404, [], "No vehicles found for the given location."));
+            return res.status(404).json(new ApiResponse(404, [], "No vehicles found for the given location and category."));
         }
 
         return res

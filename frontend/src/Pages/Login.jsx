@@ -8,6 +8,7 @@ import blurImage from "../img/b2.jpg"; // Your background image
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    // const [logedInUser, setLogedInUser] = useState("");
     const navigate = useNavigate(); // Initialize the navigate function
 
     const handleSubmit = async (e) => {
@@ -24,6 +25,8 @@ const Login = () => {
             // console.log(response);
             if (response.data.statusCode === 200) {
                 toast.success("Login successful!");
+                // setLogedInUser(response.data.data.user);
+                localStorage.setItem("loggedInUser", JSON.stringify(response.data.data.user));
 
                 localStorage.setItem(
                     "refreshToken",

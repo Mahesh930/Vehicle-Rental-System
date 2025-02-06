@@ -39,12 +39,21 @@ const BookRide = () => {
             ) {
                 setVehicles(response.data.data);
             } else {
-                console.warn("No vehicles found for the given location.");
+                console.log("No vehicles found for the given location.");
+                // Show the box with no vehicles found
+
                 setVehicles([]);
             }
         } catch (error) {
-            console.error("Failed to fetch vehicle data:", error);
-            setVehicles([]); // Reset vehicles on error
+            if (error.response.status === 404) {
+                console.log(
+                    "No vehicles found for the given location and category."
+                );
+                setVehicles([]); // Reset vehicles on error
+            } else {
+                console.error("Failed to fetch vehicle data:", error);
+                setVehicles([]); // Reset vehicles on error
+            }
         }
     };
 
@@ -152,7 +161,7 @@ const BookRide = () => {
                                     </p>
                                 </div>
                                 <Link
-                                    to="/book-now"
+                                    to="/user-booking-details"
                                     className="btn px-4 py-2 w-32 bg-blue-500 text-white text-lg rounded-full cursor-pointer hover:bg-blue-700 transition duration-300"
                                 >
                                     Book Now
