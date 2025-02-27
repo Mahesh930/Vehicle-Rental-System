@@ -1,37 +1,37 @@
 import mongoose from 'mongoose';
 
 const productBookingSchema = new mongoose.Schema({
-    user:{
+    user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
     },
-    mobile:{
+    mobile: {
         type: String,
         required: true
     },
-    bookingDate:{
+    bookingDate: {
         type: Date,
         required: true
     },
-    bookingTime:{
+    bookingTime: {
         type: String,
         required: true
     },
-    bookingStatus:{
+    bookingStatus: {
         type: String
     },
-    productId:{
+    productId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Product',
         required: true
     },
-    productOwner:{
+    productOwner: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
     },
-},{timestamps: true});
+}, { timestamps: true });
 
 const ProductBooking = mongoose.model('ProductBooking', productBookingSchema);
 export default ProductBooking;

@@ -26,7 +26,10 @@ const Login = () => {
             if (response.data.statusCode === 200) {
                 toast.success("Login successful!");
                 // setLogedInUser(response.data.data.user);
-                localStorage.setItem("loggedInUser", JSON.stringify(response.data.data.user));
+                localStorage.setItem(
+                    "loggedInUser",
+                    JSON.stringify(response.data.data.user)
+                );
 
                 localStorage.setItem(
                     "refreshToken",

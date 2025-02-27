@@ -4,10 +4,12 @@ import profileImage from "../img/profile.png"; // Add a placeholder or user's pr
 import toyotaImage from "../img/bike.jpg"; // Add images for vehicles
 import hondaImage from "../img/car.jpg"; // Add images for vehicles
 import AddVehicleModal from "./AddVehicleModal";
+import EditProfileModal from "./EditProfileModal";
 
 const Profile = () => {
     const [userProfile, setUserProfile] = useState("");
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
     const rentalHistory = [
         {
@@ -42,11 +44,16 @@ const Profile = () => {
         }
     };
 
+    const handleUpdateProfile = (updatedProfile) => {
+        setUserProfile(updatedProfile);
+        localStorage.setItem("loggedInUser", JSON.stringify(updatedProfile));
+    };
+
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem("loggedInUser"));
         setUserProfile(user);
-    }, []); 
-    
+    }, []);
+
     return (
         <div
             className="min-h-screen bg-cover bg-center flex flex-col items-center justify-center"
@@ -132,6 +139,12 @@ const Profile = () => {
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
             />
+            {/* <EditProfileModal
+                isOpen={isEditModalOpen}
+                onClose={() => setIsEditModalOpen(false)}
+                userProfile={userProfile}
+                onUpdateProfile={handleUpdateProfile}
+            /> */}
         </div>
     );
 };

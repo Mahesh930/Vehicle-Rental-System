@@ -14,16 +14,19 @@ const Register = () => {
         const formData = {
             name: e.target.name.value,
             email: e.target.email.value,
+            phone: e.target.phone.value,
             password: e.target.password.value,
         };
+        // console.log(formData);
+        
 
         try {
             // Mock API call using Axios
             const response = await axios.post(
-                `${process.env.REACT_APP_BASE_URL}/api/v1/users/register`,
+                `${import.meta.env.VITE_API_URL}/api/v1/users/register`,
                 formData
             );
-            // console.log(response);
+            console.log(response.data);
 
             if (response.data.statusCode === 200) {
                 toast.success("Registration successful!");
@@ -31,9 +34,6 @@ const Register = () => {
                 navigate("/login");
             }
         } catch (error) {
-            if (response.data.statusCode === 409) {
-                toast.error("User already exists");
-            }
             toast.error("Registration failed. Please try again.");
         }
     };
@@ -89,6 +89,18 @@ const Register = () => {
                         <input
                             type="email"
                             name="email"
+                            className="w-full px-4 py-3 mt-1 border-none rounded-lg bg-gray-800 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition-all duration-300 transform hover:scale-105 hover:ring-2 hover:ring-blue-500"
+                            placeholder="Enter your email"
+                            required
+                        />
+                    </div>
+                    <div className="mb-6">
+                        <label className="block text-lg font-medium text-white">
+                            Phone
+                        </label>
+                        <input
+                            type="text"
+                            name="phone"
                             className="w-full px-4 py-3 mt-1 border-none rounded-lg bg-gray-800 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition-all duration-300 transform hover:scale-105 hover:ring-2 hover:ring-blue-500"
                             placeholder="Enter your email"
                             required
